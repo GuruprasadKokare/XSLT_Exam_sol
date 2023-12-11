@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>XSLT_Exam</title>
+
+
+    <!-- CSS -->
+    <style>
+        table{
+            border: 1pt solid #D8D9DA;
+            font-size: 12pt;
+            padding: 2px;
+        }
+
+        thead{
+            background-color: #D6EFED;
+            text-align: center;
+            
+        }
+
+    </style>
+
+
+</head>
+
+<body>
+    
+<table id="emptable">
+    <thead>
+        <tr>
+            <th>Employee Name</th>
+            <th>Designation</th>
+            <th>Date of Joining</th>
+            <th>Address</th>
+            <th>Salary</th>
+        </tr>
+    </thead>
+        
+    <tbody>
+
+    </tbody>
+
+</table>
+
+
+
+<!-- JavaScript -->
+<script>
+
+var Employees = [
+    {EmployeeName: 'Ram', Designation: 'Technical Writer', DateofJoining: '10-10-23', Address: 'Pune', Salary: '600000'},
+    {EmployeeName: 'Mohit', Designation: 'Technical Writer', DateofJoining: '10-10-23', Address: 'Pune', Salary: '650000'},
+    {EmployeeName: 'Sham', Designation: 'Copy Writer', DateofJoining: '1-10-23', Address: 'Pune', Salary: '600000'},
+    {EmployeeName: 'Rohit', Designation: 'SD', DateofJoining: '5-05-23', Address: 'Mumbai', Salary: '700000'},
+    {EmployeeName: 'Mahadev', Designation: 'Technical Writer', DateofJoining: '10-10-23', Address: 'Mumbai', Salary: '400000'}
+];
+
+function displayNames() {
+ var tablebody = document.getElementById("emptable").getElementsByTagName("tbody")[0];
+
+ tablebody.innerHTML= '';
+ 
+ Employees.forEach(function(employee){
+
+        if(employee.Designation === "Technical Writer" && employee.Salary > 500000 && employee.Salary < 700000){
+            var datarow = tablebody.insertRow();
+
+            datarow.insertCell(0).innerHTML = employee.EmployeeName;
+            datarow.insertCell(1).innerHTML = employee.Designation;
+            datarow.insertCell(2).innerHTML = employee.DateofJoining;
+
+        }
+ });
+ 
+ 
+}
+displayNames();
+
+</script>
+
+
+</body>
+</html>
